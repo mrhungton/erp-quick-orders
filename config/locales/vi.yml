@@ -11,6 +11,7 @@ vi:
             quick_orders: "Đơn đặt hàng nhanh"
             code: "Mã đơn hàng"
             customer: "Tên khách hàng"
+            state: "Tỉnh/TP"
             phone: "Số điện thoại"
             note: "Ghi chú"
             order_date: "Ngày đặt"
@@ -20,6 +21,7 @@ vi:
           list:
             code: "Mã đơn hàng"
             customer: "Tên khách hàng"
+            state: "Khu vực/tỉnh/TP"
             phone: "Số điện thoại"
             note: "Ghi chú"
             order_date: "Ngày đặt"

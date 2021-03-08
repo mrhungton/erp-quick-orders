@@ -10,10 +10,13 @@
             <% if get_columns(params).include?("customer") %>
                 <th><%= t('.customer') %></th>
             <% end %>
-            <% if get_columns(params).include?("customer") %>
+            <% if get_columns(params).include?("state") %>
+                <th><%= t('.state') %></th>
+            <% end %>
+            <% if get_columns(params).include?("phone") %>
                 <th><%= t('.phone') %></th>
             <% end %>
-            <% if get_columns(params).include?("customer") %>
+            <% if get_columns(params).include?("note") %>
                 <th width='15%'><%= t('.note') %></th>
             <% end %>
             <% if get_columns(params).include?("order_date") %>
@@ -48,6 +51,9 @@
                 <% end %>
                 <% if get_columns(params).include?("customer") %>
                     <td><%= order.customer_name %></td>
+                <% end %>
+                <% if get_columns(params).include?("state") %>
+                    <td><%= order.state_name %></td>
                 <% end %>
                 <% if get_columns(params).include?("phone") %>
                     <td><%= order.phone %></td>
