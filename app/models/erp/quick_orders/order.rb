@@ -7,8 +7,8 @@ module Erp::QuickOrders
     accepts_nested_attributes_for :order_details, :reject_if => lambda { |a| a[:product_id].blank? }, :allow_destroy => true
 
     if Erp::Core.available?("areas")
-			belongs_to :state, class_name: "Erp::Areas::State"
-			belongs_to :district, class_name: "Erp::Areas::District"
+			belongs_to :state, class_name: "Erp::Areas::State", optional: true
+			belongs_to :district, class_name: "Erp::Areas::District", optional: true
 
 			def state_name
 				state.present? ? state.name : ''
