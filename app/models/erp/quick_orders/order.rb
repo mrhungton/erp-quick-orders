@@ -79,6 +79,14 @@ module Erp::QuickOrders
         end
       end
 
+      # global filter
+      global_filter = params[:global_filter]
+      if global_filter.present?
+				if global_filter[:state_id].present?
+					query = query.where(state_id: global_filter[:state_id])
+				end
+			end
+
       # add conditions to query
       query = query.where(and_conds.join(' AND ')) if !and_conds.empty?
 

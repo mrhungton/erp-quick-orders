@@ -6,6 +6,19 @@
     <i class="fa fa-file-text"></i> <%= t('.quick_orders') %>
 <% end %>
 
+<% content_for :global_filter do %>
+    <div class="row top-datalist">
+        <div class="col-md-3">
+            <%= erp_form_control("dataselect", {
+                name: 'state_id',
+                label: 'Tỉnh/Thành phố',
+                placeholder: 'Lọc theo Tỉnh/Thành phố',
+                url: erp_areas.dataselect_backend_states_path(format: 'json'),
+            }) %>
+        </div>
+    </div>
+<% end %>
+
 <%= erp_datalist(
     url: erp_quick_orders.list_backend_orders_path,
     keywords: [
