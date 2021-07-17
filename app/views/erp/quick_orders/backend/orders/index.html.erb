@@ -9,11 +9,28 @@
 <% content_for :global_filter do %>
     <div class="row top-datalist">
         <div class="col-md-3">
+            <%= erp_form_control('date', {
+                label: 'Từ ngày',
+                name: 'from_date',
+                value: @from_date,
+                placeholder: 'Chọn từ ngày'
+            }) %>
+        </div>
+        <div class="col-md-3">
+            <%= erp_form_control('date', {
+                label: 'Đến ngày',
+                name: 'to_date',
+                value: @to_date,
+                placeholder: 'Chọn đến ngày'
+            }) %>
+        </div>
+        <div class="col-md-3">
             <%= erp_form_control("dataselect", {
                 name: 'state_id',
                 label: 'Tỉnh/Thành phố',
                 placeholder: 'Lọc theo Tỉnh/Thành phố',
                 url: erp_areas.dataselect_backend_states_path(format: 'json'),
+                multiple: true,
             }) %>
         </div>
     </div>
@@ -33,6 +50,23 @@
         #     data_method: 'PUT',
         #     data_confirm: t('update_status_confirm')
         # }
+    ],
+    filters: [
+        { 
+            text: t('.new'), name: 'status', value: Erp::QuickOrders::Order::STATUS_NEW, checked: true 
+        },
+        { 
+            text: t('.pending'), name: 'status', value: Erp::QuickOrders::Order::STATUS_PENDING, checked: true 
+        },
+        { 
+            text: t('.confirmed'), name: 'status', value: Erp::QuickOrders::Order::STATUS_CONFIRMED, checked: true 
+        },
+        { 
+            text: t('.done'), name: 'status', value: Erp::QuickOrders::Order::STATUS_DONE, checked: true 
+        },
+        { 
+            text: t('.canceled'), name: 'status', value: Erp::QuickOrders::Order::STATUS_CANCELED, checked: false 
+        },
     ],
     columns: [
         {

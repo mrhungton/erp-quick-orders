@@ -18,6 +18,11 @@ vi:
             total: "Tổng tiền"
             status: "Trạng thái"
             delete: "Xóa đơn hàng đã chọn"
+            new: "Mới"
+            pending: "Đang chờ"
+            confirmed: "Xác nhận"
+            done: "Hoàn thành"
+            canceled: "Đã hủy"
           list:
             code: "Mã đơn hàng"
             customer: "Tên khách hàng"
@@ -38,6 +43,7 @@ vi:
             confirmed: "Xác nhận"
             done: "Hoàn thành"
             canceled: "Đã hủy"
+            no_matching_records_found: "Không tìm thấy danh sách phù hợp"
           order_details:
             product_code: "Mã sản phẩm"
             product_name: "Tên sản phẩm"
