@@ -83,11 +83,6 @@ module Erp::QuickOrders
       global_filter = params[:global_filter]
       if global_filter.present?
 
-        # filter by state/province
-				if global_filter[:state_id].present?
-					query = query.where(state_id: global_filter[:state_id])
-				end
-
         # filter by from date
 				if global_filter[:from_date].present?
 					query = query.where('created_at >= ?', global_filter[:from_date].to_date.beginning_of_day)
@@ -96,6 +91,16 @@ module Erp::QuickOrders
 				# filter by to date
 				if global_filter[:to_date].present?
 					query = query.where('created_at <= ?', global_filter[:to_date].to_date.end_of_day)
+				end
+
+        # filter by state/province
+				if global_filter[:state_id].present?
+					query = query.where(state_id: global_filter[:state_id])
+				end
+
+        # filter by district
+				if global_filter[:district_id].present?
+					query = query.where(district_id: global_filter[:district_id])
 				end
 
 			end

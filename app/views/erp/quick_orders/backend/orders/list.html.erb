@@ -13,6 +13,9 @@
             <% if get_columns(params).include?("state") %>
                 <th><%= t('.state') %></th>
             <% end %>
+            <% if get_columns(params).include?("district") %>
+                <th><%= t('.district') %></th>
+            <% end %>
             <% if get_columns(params).include?("phone") %>
                 <th><%= t('.phone') %></th>
             <% end %>
@@ -44,9 +47,9 @@
                     <%= erp_datalist_check_row(id: order.id) %>
                 </td>
                 <% if get_columns(params).include?("code") %>
-                    <td>
-                        <i class="fa fa-plus expand tr-expand-button"></i>
-                        <span class="font-yellow-gold sbold"><%= order.code %></span>
+                    <td class="text-nowrap">
+                        <i class="fa fa-plus expand tr-expand-button font-sm" style="margin-right: 5px; width: 18px; height: 18px"></i>
+                        <span class="font-yellow-gold sbold font-sm"><%= order.code %></span>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("customer") %>
@@ -54,6 +57,9 @@
                 <% end %>
                 <% if get_columns(params).include?("state") %>
                     <td><%= order.state_name %></td>
+                <% end %>
+                <% if get_columns(params).include?("district") %>
+                    <td><%= order.district_name %></td>
                 <% end %>
                 <% if get_columns(params).include?("phone") %>
                     <td><%= order.phone %></td>

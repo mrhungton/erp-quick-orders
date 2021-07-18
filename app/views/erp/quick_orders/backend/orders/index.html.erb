@@ -28,9 +28,18 @@
             <%= erp_form_control("dataselect", {
                 name: 'state_id',
                 label: 'Tỉnh/Thành phố',
-                placeholder: 'Lọc theo Tỉnh/Thành phố',
+                placeholder: 'Chọn Tỉnh/Thành phố',
                 url: erp_areas.dataselect_backend_states_path(format: 'json'),
-                multiple: true,
+            }) %>
+        </div>
+        <div class="col-md-3">
+            <%= erp_form_control("dataselect", {
+                name: 'district_id',
+                label: 'Quận/Huyện/TX/TP',
+                placeholder: 'Chọn Quận/Huyện/Thị xã/TP',
+                url: erp_areas.dataselect_backend_districts_path(format: 'json'),
+                parent_control: "input[name='state_id']",
+                parent_id: "state_id"
             }) %>
         </div>
     </div>
@@ -77,6 +86,9 @@
         },
         {
             text: t('.state'), name: 'state', value: true, checked: true
+        },
+        {
+            text: t('.district'), name: 'district', value: true, checked: true
         },
         {
             text: t('.phone'), name: 'phone', value: true, checked: true
